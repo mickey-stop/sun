@@ -1,0 +1,458 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.clear {
+    clear: both;
+}
+
+
+/*Stars-container section*/
+
+.stars-container {
+    height: 100vh;
+    position: relative;
+}
+
+@keyframes move-twink-back {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -10000px 5000px;
+    }
+}
+
+@-webkit-keyframes move-twink-back {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -10000px 5000px;
+    }
+}
+
+@-moz-keyframes move-twink-back {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -10000px 5000px;
+    }
+}
+
+@-ms-keyframes move-twink-back {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -10000px 5000px;
+    }
+}
+
+@keyframes move-clouds-back {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 10000px 0;
+    }
+}
+
+@-webkit-keyframes move-clouds-back {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 10000px 0;
+    }
+}
+
+@-moz-keyframes move-clouds-back {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 10000px 0;
+    }
+}
+
+@-ms-keyframes move-clouds-back {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: 10000px 0;
+    }
+}
+
+.stars,
+.twinkling,
+.clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.stars {
+    background: #000 url(images/stars.png) repeat top center;
+    z-index: 0;
+}
+
+.twinkling {
+    background: transparent url(images/twinkling.png) repeat top center;
+    z-index: 1;
+    -moz-animation: move-twink-back 200s linear infinite;
+    -ms-animation: move-twink-back 200s linear infinite;
+    -o-animation: move-twink-back 200s linear infinite;
+    -webkit-animation: move-twink-back 200s linear infinite;
+    animation: move-twink-back 200s linear infinite;
+}
+
+.clouds {
+    background: transparent url(images/clouds.png) repeat top center;
+    z-index: 3;
+    -moz-animation: move-clouds-back 200s linear infinite;
+    -ms-animation: move-clouds-back 200s linear infinite;
+    -o-animation: move-clouds-back 200s linear infinite;
+    -webkit-animation: move-clouds-back 200s linear infinite;
+    animation: move-clouds-back 200s linear infinite;
+}
+
+
+/*End of stars-container section*/
+
+
+/*Start of gradient section*/
+
+.gradient {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,c8c8c8+50,87ceeb+100 */
+    background: #000000;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #000000 0%, #c8c8c8 50%, #87ceeb 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #000000 0%, #c8c8c8 50%, #87ceeb 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #000000 0%, #c8c8c8 50%, #87ceeb 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#87ceeb', GradientType=0);
+    /* IE6-9 */
+    height: 400px;
+}
+
+
+/*End of gradient section*/
+
+
+/*Start of main section*/
+
+.main {
+    position: relative;
+    background-color: #87ceeb;
+    height: 100vh;
+    overflow:hidden;
+}
+
+#top-left {
+    background-image: url(sun-functionality-photo1.jpg);
+}
+
+#top-right {
+    background-image: url(sun-design-photo2.jpg);
+}
+
+#bottom-left {
+    background-image: url(sun-optimization-photo3.jpg);
+    /*top: 0;
+    left: 0;*/
+}
+#bottom-right{
+}
+
+.quarter {
+    position: relative;
+    float: left;
+    /*top: 50%;*/
+    /*left: 0;*/
+    width: 50%;
+    height:50%;
+    /*height: 0;*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+    transition: 1.2s;
+    transition-timing-function: ease-in;    
+    /*transform:scale(0.2);*/
+}
+
+.quarter.active {
+    opacity: 1;
+    /*transform:scale(1);*/
+    /*top: 0;
+    left: 0;
+    width: 50%;
+    height: 50vh;*/
+}
+
+.quarter:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*background-color: rgba(254, 207, 56, 0.2);*/
+    background-color:white;
+    transition: 1.5s;
+    transition-timing-function: ease;
+    z-index: 15;
+}
+
+/*.quarter:hover:after*/
+.quarter:hover:after {
+    background-color: rgba(254, 207, 56, 0.7);
+}
+
+.quarter:hover .cloud-svg {
+    opacity: 0;
+}
+
+.cloud-svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    opacity: 1;
+    transition: 1.5s;
+}
+
+.cloud-svg-text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 105;
+}
+
+.circle {
+    position: absolute;
+    top: 50%;
+    margin-top: -75px;
+    left: 50%;
+    margin-left: -75px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    /*border: 10px solid white;
+    border-top-color: darkorange;*/
+    background-color: yellow;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+28,ffef19+100 */
+    background: rgb(255, 255, 255);
+    /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 28%, rgb(255, 239, 25) 100%);
+    /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 28%, rgb(255, 239, 25) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 28%, rgb(255, 239, 25) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffef19', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+    transform: rotate(-45deg);
+    z-index: 110;
+    /*background-image: url(sun-small.png);*/
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.sun-rays {
+    position: absolute;
+    z-index: 100;
+    width: 100vmin;
+    height: 100vmin;
+    top: 0;
+    left: 50%;
+    margin-left: -50vmin;
+    background-image: url(sunray-photo.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation-name: sun-rays;
+    animation-duration: 60s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes sun-rays {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/*fix position on scroll*/
+
+.sun-fixed {
+    position: fixed;
+    top: 0px;
+}
+
+.sun-rays-fixed {
+    position: fixed;
+    top: -50vmin;
+}
+
+
+/*End of main section*/
+
+
+/*Start of clouds container*/
+
+.clouds-container {
+    height: 100vh;
+    background-color: skyblue;
+    position: relative;
+    overflow: hidden;
+}
+
+.cloud-container {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#html-container {
+    width: 85vmin;
+    height: 50vmin;
+    top: 7vmin;
+    left: 5vmin;
+    position: absolute;
+    background-image: url(html-cloud.png);
+    animation-name: cloud-left;
+    animation-duration: 50s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    z-index: 53;
+}
+
+#javascript-container {
+    width: 85vmin;
+    height: 50vmin;
+    top: 0vmin;
+    right: 4vmin;
+    position: absolute;
+    background-image: url(javascript-cloud.png);
+    animation-name: cloud-right;
+    animation-duration: 120s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    z-index: 54
+}
+
+#php-container {
+    width: 85vmin;
+    height: 50vmin;
+    top: 30vmin;
+    right: 50vmin;
+    position: absolute;
+    background-image: url(php-cloud.png);
+    animation-name: cloud-center;
+    animation-duration: 80s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    z-index: 51;
+}
+
+#wordpress-container {
+    width: 85vmin;
+    height: 50vmin;
+    bottom: 0vmin;
+    left: 5vmin;
+    position: absolute;
+    background-image: url(wordpress-cloud.png);
+    animation-name: cloud-left;
+    animation-duration: 100s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    z-index: 55;
+}
+
+#css-container {
+    width: 85vmin;
+    height: 50vmin;
+    bottom: 7vmin;
+    right: 2vmin;
+    position: absolute;
+    background-image: url(css-cloud.png);
+    animation-name: cloud-right;
+    animation-duration: 60s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    z-index: 52;
+}
+
+@keyframes cloud-left {
+    0% {
+        left: 5vmin;
+    }
+    100% {
+        left: 120vmin
+    }
+}
+
+@keyframes cloud-right {
+    0% {
+        right: 3vmin;
+    }
+    100% {
+        right: 120vmin
+    }
+}
+
+@keyframes cloud-center {
+    0% {
+        right: 50vmin;
+    }
+    100% {
+        right: 100vmin
+    }
+}
+
+
+/*End of clouds container*/
+
+.forest-container {
+    height: 100vh;
+    background-color: skyblue;
+    position: relative;
+}
+
+.forest-bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    background-image: url(forest.png);
+    background-size: 100% 100%;
+}
