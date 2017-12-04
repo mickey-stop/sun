@@ -171,9 +171,16 @@ body {
 #top-left {
     background-image: url(sun-functionality-photo1.jpg);
 }
-
+#top-left .cloud-svg{
+    background-image:url(myclouds/cloud1.png);
+    background-position: center;
+}
 #top-right {
     background-image: url(sun-design-photo2.jpg);
+}
+#top-right .cloud-svg{
+    background-image:url(myclouds/cloud2.png);
+    background-position: center;
 }
 
 #bottom-left {
@@ -181,17 +188,25 @@ body {
     /*top: 0;
     left: 0;*/
 }
+#bottom-left .cloud-svg{
+    background-image:url(myclouds/cloud3.png);
+    background-position: center;
+}
 #bottom-right{
+}
+#bottom-right .cloud-svg{
+    background-image:url(myclouds/cloud4.png);
+    background-position: center;
 }
 
 .quarter {
     position: relative;
     float: left;
-    /*top: 50%;*/
-    /*left: 0;*/
+    top: 50%;
+    left: 0;
     width: 50%;
-    height:50%;
-    /*height: 0;*/
+    /*height:50%;*/
+    height: 0;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -204,10 +219,10 @@ body {
 .quarter.active {
     opacity: 1;
     /*transform:scale(1);*/
-    /*top: 0;
+    top: 0;
     left: 0;
     width: 50%;
-    height: 50vh;*/
+    height: 50vh;
 }
 
 .quarter:after {
@@ -218,7 +233,7 @@ body {
     width: 100%;
     height: 100%;
     /*background-color: rgba(254, 207, 56, 0.2);*/
-    background-color:white;
+    background-color:skyblue;
     transition: 1.5s;
     transition-timing-function: ease;
     z-index: 15;
@@ -237,9 +252,11 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    z-index: 20;
+    z-index: 105;
     opacity: 1;
     transition: 1.5s;
+    background-size:contain;
+    background-repeat: no-repeat;
 }
 
 .cloud-svg-text {
@@ -248,7 +265,10 @@ body {
     height: 100%;
     top: 0;
     left: 0;
-    z-index: 105;
+    z-index: 110;
+    line-height:50vh;
+    text-align:center;
+    text-transform: uppercase;
 }
 
 .circle {
@@ -275,7 +295,7 @@ body {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffef19', GradientType=1);
     /* IE6-9 fallback on horizontal gradient */
     transform: rotate(-45deg);
-    z-index: 110;
+    z-index: 120;
     /*background-image: url(sun-small.png);*/
     background-position: center;
     background-repeat: no-repeat;
@@ -308,8 +328,6 @@ body {
         transform: rotate(360deg);
     }
 }
-
-
 /*fix position on scroll*/
 
 .sun-fixed {
@@ -337,17 +355,17 @@ body {
 
 .cloud-container {
     background-size: contain;
-    background-position: center;
+    background-position: 50% bottom;
     background-repeat: no-repeat;
 }
 
 #html-container {
-    width: 85vmin;
+    width: 35vmin;
     height: 50vmin;
     top: 7vmin;
-    left: 5vmin;
+    left: 40vmin;
     position: absolute;
-    background-image: url(html-cloud.png);
+    background-image: url(myballoons/html5balloon.png);
     animation-name: cloud-left;
     animation-duration: 50s;
     animation-direction: alternate;
@@ -356,12 +374,12 @@ body {
 }
 
 #javascript-container {
-    width: 85vmin;
+    width: 35vmin;
     height: 50vmin;
-    top: 0vmin;
+    top: 5vmin;
     right: 4vmin;
     position: absolute;
-    background-image: url(javascript-cloud.png);
+    background-image: url(myballoons/jsballoon.png);
     animation-name: cloud-right;
     animation-duration: 120s;
     animation-direction: alternate;
@@ -384,12 +402,12 @@ body {
 }
 
 #wordpress-container {
-    width: 85vmin;
+    width: 35vmin;
     height: 50vmin;
     bottom: 0vmin;
     left: 5vmin;
     position: absolute;
-    background-image: url(wordpress-cloud.png);
+    background-image: url(myballoons/wpballoon.png);
     animation-name: cloud-left;
     animation-duration: 100s;
     animation-direction: alternate;
@@ -398,32 +416,52 @@ body {
 }
 
 #css-container {
-    width: 85vmin;
+    width: 35vmin;
     height: 50vmin;
     bottom: 7vmin;
-    right: 2vmin;
+    right: 42vmin;
     position: absolute;
-    background-image: url(css-cloud.png);
+    background-image: url(myballoons/css3balloon.png);
     animation-name: cloud-right;
     animation-duration: 60s;
     animation-direction: alternate;
     animation-iteration-count: infinite;
     z-index: 52;
 }
-
+#rainbow-container{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:200px;
+    background-image:url(rainbow.png);
+    background-size:100% 100%;
+    background-repeat: no-repeat;
+    opacity:0.5;
+}
+#sky-container{
+    position:absolute;
+    left: 0;
+    top:0;
+    width: 100%;
+    height:100%;
+    background-image:url(sky/sky3.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
 @keyframes cloud-left {
-    0% {
+    /*0% {
         left: 5vmin;
-    }
+    }*/
     100% {
-        left: 120vmin
+        left: 120vmin;
     }
 }
 
 @keyframes cloud-right {
-    0% {
+    /*0% {
         right: 3vmin;
-    }
+    }*/
     100% {
         right: 120vmin
     }
